@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type_inventory: one
+  type_machine: 1
+  muscle_group: MyString
+  date_purchase: 2023-05-15
+  cost: 9.99
+
+two:
+  type_inventory: two
+  type_machine: 1
+  muscle_group: MyString
+  date_purchase: 2023-05-15
+  cost: 9.99

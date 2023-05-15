@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Type users</h1>
+
+<div id="type_users">
+  <% @type_users.each do |type_user| %>
+    <%= render type_user %>
+    <p>
+      <%= link_to "Show this type user", type_user %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New type user", new_type_user_path %>

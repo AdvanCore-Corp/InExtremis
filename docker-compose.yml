@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && rails s -b 0.0.0.0"
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - pgadmin
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: advancore
+      POSTGRES_PASSWORD: default
+      POSTGRES_DB: inextremis
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: advancore.corp@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: default
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+
+volumes:
+  dbdata:
